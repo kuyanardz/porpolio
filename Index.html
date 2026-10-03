@@ -1,1 +1,1702 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Leonardo Aragon Lachica - Real Estate Virtual Assistant">
+  <title>Leonardo Aragon Lachica | Real Estate Virtual Assistant</title>
+
+  <style>
+    /* =========================================================
+       EDITABLE INFORMATION:
+       You can customize colors, spacing, fonts, and other
+       visual styles in this section.
+       ========================================================= */
+
+    :root {
+      --bg: #070b14;
+      --bg-light: #0c1220;
+      --card: rgba(17, 25, 42, 0.78);
+      --card-solid: #11192a;
+      --primary: #4f8cff;
+      --primary-dark: #2563eb;
+      --secondary: #7c5cff;
+      --accent: #38bdf8;
+      --text: #f4f7fb;
+      --muted: #a8b3c7;
+      --border: rgba(148, 163, 184, 0.16);
+      --success: #34d399;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --max-width: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(79, 140, 255, 0.10), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(124, 92, 255, 0.10), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      display: inline-block;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(7, 11, 20, 0.72);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    header.scrolled {
+      border-bottom-color: var(--border);
+      background: rgba(7, 11, 20, 0.92);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 80px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      right: -180px;
+      top: 80px;
+      border-radius: 50%;
+      background: rgba(79, 140, 255, 0.13);
+      filter: blur(90px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      left: -180px;
+      bottom: 30px;
+      border-radius: 50%;
+      background: rgba(124, 92, 255, 0.10);
+      filter: blur(80px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(79, 140, 255, 0.3);
+      border-radius: 999px;
+      color: #b9d1ff;
+      background: rgba(79, 140, 255, 0.08);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .hero-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--success);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 7vw, 5.7rem);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, #8bb5ff, #8b7bff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero h2 {
+      color: var(--primary);
+      font-size: clamp(1.15rem, 3vw, 1.65rem);
+      letter-spacing: 1px;
+      margin-bottom: 22px;
+    }
+
+    .hero-description {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 12px 30px rgba(79, 140, 255, 0.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 35px rgba(79, 140, 255, 0.32);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.03);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(79, 140, 255, 0.5);
+      background: rgba(79, 140, 255, 0.08);
+      transform: translateY(-3px);
+    }
+
+    /* =========================================================
+       ABOUT
+       ========================================================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .profile-card {
+      position: relative;
+      min-height: 430px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(79, 140, 255, 0.12), rgba(124, 92, 255, 0.05)),
+        var(--card);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      filter: blur(2px);
+      opacity: 0.18;
+    }
+
+    .profile-initials {
+      position: relative;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #18294a, #101827);
+      border: 1px solid rgba(139, 181, 255, 0.35);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      font-size: 3.3rem;
+      font-weight: 900;
+      color: #a8c7ff;
+    }
+
+    .about-content h3 {
+      font-size: 2rem;
+      margin-bottom: 18px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 12px;
+      color: #d9e2f1;
+    }
+
+    .info-item strong {
+      min-width: 100px;
+      color: white;
+    }
+
+    /* =========================================================
+       SKILLS
+       ========================================================= */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      padding: 22px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 16px;
+      transition: 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(79, 140, 255, 0.4);
+      background: rgba(20, 31, 52, 0.9);
+    }
+
+    .skill-icon {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .skill-card h3 {
+      font-size: 0.96rem;
+      line-height: 1.4;
+    }
+
+    /* =========================================================
+       EXPERIENCE TIMELINE
+       ========================================================= */
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 16px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(var(--primary), var(--secondary), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 55px;
+      margin-bottom: 35px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 8px;
+      top: 5px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 4px solid var(--bg);
+      box-shadow: 0 0 18px rgba(79, 140, 255, 0.65);
+    }
+
+    .timeline-card {
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: 0.3s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateX(5px);
+      border-color: rgba(79, 140, 255, 0.35);
+    }
+
+    .timeline-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .timeline-card .company {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       PROJECTS
+       ========================================================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background:
+        linear-gradient(145deg, rgba(79, 140, 255, 0.12), rgba(124, 92, 255, 0.04)),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: 0.35s ease;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -50px;
+      top: -50px;
+      border-radius: 50%;
+      background: rgba(79, 140, 255, 0.15);
+      transition: 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(79, 140, 255, 0.45);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card:hover::before {
+      transform: scale(1.4);
+    }
+
+    .project-number {
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      color: rgba(255, 255, 255, 0.25);
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .project-card h3 {
+      position: relative;
+      z-index: 2;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      position: relative;
+      z-index: 2;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* =========================================================
+       EDUCATION & CERTIFICATIONS
+       ========================================================= */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .feature-card {
+      padding: 35px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(79, 140, 255, 0.35);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      background: rgba(79, 140, 255, 0.1);
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+    }
+
+    .cert-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .cert-item {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .cert-check {
+      color: var(--success);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    /* =========================================================
+       SERVICES
+       ========================================================= */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 32px;
+      background: linear-gradient(145deg, rgba(79, 140, 255, 0.08), rgba(255, 255, 255, 0.02));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(79, 140, 255, 0.4);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card .icon {
+      font-size: 2rem;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       CONTACT
+       ========================================================= */
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 25px;
+    }
+
+    .contact-info,
+    .contact-form {
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .contact-info > p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-item:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-item .icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: var(--accent);
+      background: rgba(79, 140, 255, 0.1);
+    }
+
+    .contact-item small {
+      display: block;
+      color: #7f8ba0;
+      margin-bottom: 2px;
+    }
+
+    .contact-item a,
+    .contact-item span {
+      color: #e5edf9;
+      word-break: break-word;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: rgba(3, 7, 18, 0.55);
+      color: white;
+      border-radius: 11px;
+      padding: 13px 14px;
+      outline: none;
+      font-family: inherit;
+      transition: 0.25s ease;
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.1);
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      background: rgba(3, 7, 18, 0.6);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-content p {
+      color: #7f8ba0;
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: #9ba8bb;
+      font-size: 0.88rem;
+      transition: 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* =========================================================
+       ANIMATIONS
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       RESPONSIVE DESIGN
+       ========================================================= */
+
+    @media (max-width: 1000px) {
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .section {
+        padding: 75px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 4%;
+        background: rgba(7, 11, 20, 0.97);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li a {
+        display: block;
+        padding: 13px 0;
+      }
+
+      .about-grid,
+      .contact-wrapper,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        min-height: 320px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .skills-grid,
+      .projects-grid,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .timeline-item {
+        padding-left: 45px;
+      }
+
+      .timeline::before {
+        left: 10px;
+      }
+
+      .timeline-dot {
+        left: 2px;
+      }
+
+      .contact-info,
+      .contact-form,
+      .feature-card {
+        padding: 25px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+       EDIT YOUR NAVIGATION LABELS/LINKS HERE IF NEEDED
+       ========================================================= -->
+  <header id="header">
+    <div class="container navbar">
+
+      <!-- EDIT: Your logo/name -->
+      <a href="#home" class="logo">L<span>AL</span>.</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </header>
+
+
+  <!-- =========================================================
+       HOME / HERO
+       EDIT YOUR NAME, TITLE, AND INTRODUCTION HERE
+       ========================================================= -->
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content reveal">
+
+          <div class="hero-badge">
+            Available for Virtual Assistance Opportunities
+          </div>
+
+          <!-- EDIT: Your full name -->
+          <h1>
+            Leonardo<br>
+            <span class="gradient-text">Aragon Lachica</span>
+          </h1>
+
+          <!-- EDIT: Your professional title -->
+          <h2>REAL ESTATE VIRTUAL ASSISTANT</h2>
+
+          <!-- EDIT: Your short introduction -->
+          <p class="hero-description">
+            Detail-oriented administrative professional specializing in
+            real estate virtual assistance, transaction coordination,
+            listing support, client communication, and organized
+            administrative workflows.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">
+              Let's Work Together →
+            </a>
+
+            <a href="#projects" class="btn btn-outline">
+              View My Projects
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         ABOUT
+         EDIT YOUR BIO AND PERSONAL INFORMATION HERE
+         ========================================================= -->
+    <section class="section" id="about">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>About Me</span>
+          <h2>Professional, Organized & Reliable</h2>
+          <p>
+            Administrative support designed to help real estate professionals
+            stay organized and focused on their clients.
+          </p>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="profile-card reveal">
+            <!-- EDIT: Replace initials with your initials or add a photo -->
+            <div class="profile-initials">LAL</div>
+          </div>
+
+          <div class="about-content reveal">
+
+            <h3>Helping Real Estate Professionals Work Smarter</h3>
+
+            <!-- EDIT: Your complete biography -->
+            <p>
+              Detail-oriented administrative professional with experience in
+              executive support, document management, scheduling, coordination,
+              and client communication.
+            </p>
+
+            <p>
+              Trained in Paralegal and Real Estate Virtual Assistant support,
+              with strong organizational and administrative skills. Experienced
+              in managing multiple priorities, coordinating appointments,
+              preparing documents, and handling time-sensitive tasks.
+            </p>
+
+            <p>
+              Known for accuracy, confidentiality, professional communication,
+              and problem-solving. Seeking to apply these skills as a Virtual
+              Legal Assistant while developing expertise in U.S. legal
+              terminology and law-firm workflows.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <strong>Location:</strong>
+                <span>Poblacion Uno, Real, Quezon, Philippines</span>
+              </div>
+
+              <div class="info-item">
+                <strong>Focus:</strong>
+                <span>Real Estate Virtual Assistance</span>
+              </div>
+
+              <div class="info-item">
+                <strong>Email:</strong>
+                <span>lachicanardz@gmail.com</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SKILLS
+         EDIT: Add, remove, or rename skills here
+         ========================================================= -->
+    <section class="section" id="skills">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>My Skills</span>
+          <h2>Tools & Expertise</h2>
+          <p>
+            A versatile administrative skill set supporting real estate,
+            property management, coordination, and digital workflows.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">▣</div>
+            <h3>Transaction Coordinator</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">◆</div>
+            <h3>Listing Coordinator</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">✓</div>
+            <h3>General VA Administrative Tasks</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">☎</div>
+            <h3>Real Estate Cold Calling</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">▣</div>
+            <h3>Real Estate Content Creation</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">⌕</div>
+            <h3>Comparative Market Analysis & Research</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">⚙</div>
+            <h3>Real Estate Vendor Coordination</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">⌂</div>
+            <h3>Property Management</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">◉</div>
+            <h3>Tenant & Maintenance Coordination</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">◆</div>
+            <h3>Project Management</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">✓</div>
+            <h3>Tenant Screening</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">$</div>
+            <h3>Trust Accounting</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">C</div>
+            <h3>Canva</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">AI</div>
+            <h3>ChatGPT & AI Tools</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">Z</div>
+            <h3>Zoom</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">G</div>
+            <h3>Google Meet</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">T</div>
+            <h3>Time Management</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">Q</div>
+            <h3>Light QuickBooks</h3>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-icon">CRM</div>
+            <h3>Light CRM</h3>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         EXPERIENCE
+         EDIT: Add your work history here
+         ========================================================= -->
+    <section class="section" id="experience">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>Experience</span>
+          <h2>Professional Background</h2>
+          <p>
+            Experience across marketing, project management, insurance,
+            administration, and client-focused operations.
+          </p>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <h3>Marketing Associate</h3>
+              <div class="company">Megaworld Corporation</div>
+              <p>
+                Experience supporting marketing activities, coordination,
+                client communication, administrative processes, and
+                organized handling of multiple priorities.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <h3>Project Manager</h3>
+              <div class="company">Hayahay Beach Resort</div>
+              <p>
+                Experience coordinating projects, schedules, operational
+                requirements, people, and day-to-day activities while
+                maintaining organized workflows.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <h3>Insurance Underwriter</h3>
+              <div class="company">KCPAFI</div>
+              <p>
+                Experience working with documentation, review processes,
+                accuracy-focused administrative tasks, information analysis,
+                and time-sensitive responsibilities.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         PROJECTS
+         EDIT: Add your project descriptions here
+         ========================================================= -->
+    <section class="section" id="projects">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>Projects</span>
+          <h2>Selected Work Areas</h2>
+          <p>
+            Practical real estate and administrative support projects.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <div class="project-card reveal">
+            <span class="project-number">01</span>
+            <h3>Property Listing</h3>
+            <p>
+              Property listing support, information organization,
+              presentation, and administrative coordination.
+            </p>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-number">02</span>
+            <h3>Comparative Market Analysis</h3>
+            <p>
+              Comparative research and market information organization
+              to support real estate decision-making.
+            </p>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-number">03</span>
+            <h3>Real Estate Vendor Coordination</h3>
+            <p>
+              Coordination with vendors and service providers to help
+              maintain organized property-related workflows.
+            </p>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-number">04</span>
+            <h3>Property Management</h3>
+            <p>
+              Tenant and maintenance coordination support for
+              property management operations.
+            </p>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-number">05</span>
+            <h3>Tenant Screening</h3>
+            <p>
+              Project management and administrative support related
+              to tenant screening workflows.
+            </p>
+          </div>
+
+          <div class="project-card reveal">
+            <span class="project-number">06</span>
+            <h3>Trust Accounting</h3>
+            <p>
+              Administrative support involving organized financial
+              records and trust accounting workflows.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         EDUCATION & CERTIFICATIONS
+         EDIT: Update education/certification information here
+         ========================================================= -->
+    <section class="section" id="education">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>Education</span>
+          <h2>Academic Background</h2>
+        </div>
+
+        <div class="two-column">
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">🎓</div>
+            <h3>AB Philosophy</h3>
+            <p>
+              Academic background focused on critical thinking,
+              analysis, communication, reasoning, and structured
+              problem-solving.
+            </p>
+          </div>
+
+          <div class="feature-card reveal" id="certifications">
+            <div class="feature-icon">✓</div>
+            <h3>Certifications</h3>
+
+            <div class="cert-list">
+              <div class="cert-item">
+                <div class="cert-check">✓</div>
+                <div>
+                  <strong>
+                    Certified in Real Estate Virtual Assistant Master Class
+                  </strong>
+                </div>
+              </div>
+
+              <div class="cert-item">
+                <div class="cert-check">✓</div>
+                <div>
+                  <strong>
+                    Certified in CapCut Video Editing
+                  </strong>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SERVICES
+         EDIT: Add/remove services as your business evolves
+         ========================================================= -->
+    <section class="section" id="services">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>Services</span>
+          <h2>How I Can Help</h2>
+          <p>
+            Reliable virtual assistance designed around the needs
+            of real estate professionals and teams.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card reveal">
+            <div class="icon">🏠</div>
+            <h3>Real Estate Virtual Assistant Support</h3>
+            <p>
+              Administrative and operational support to help real estate
+              professionals stay organized and productive.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="icon">📋</div>
+            <h3>Transaction Coordination Support</h3>
+            <p>
+              Support with documentation, deadlines, communication,
+              scheduling, and transaction-related administrative tasks.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="icon">📊</div>
+            <h3>Listing & Comparative Market Analysis Support</h3>
+            <p>
+              Assistance with listing administration, research,
+              comparable property information, and organized market data.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT
+         EDIT: Update your email, LinkedIn, and location here
+         ========================================================= -->
+    <section class="section" id="contact">
+      <div class="container">
+
+        <div class="section-title reveal">
+          <span>Contact</span>
+          <h2>Let's Work Together</h2>
+          <p>
+            Have a project, role, or real estate support opportunity?
+            I'd be happy to connect.
+          </p>
+        </div>
+
+        <div class="contact-wrapper">
+
+          <div class="contact-info reveal">
+
+            <h3>Get In Touch</h3>
+
+            <p>
+              I am open to opportunities involving real estate virtual
+              assistance, transaction coordination, listing support,
+              administrative work, and related roles.
+            </p>
+
+            <div class="contact-item">
+              <div class="icon">✉</div>
+              <div>
+                <small>Email</small>
+                <a href="mailto:lachicanardz@gmail.com">
+                  lachicanardz@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon">in</div>
+              <div>
+                <small>LinkedIn</small>
+                <a
+                  href="https://www.linkedin.com/in/leonardo-lachica-va"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  linkedin.com/in/leonardo-lachica-va
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon">⌖</div>
+              <div>
+                <small>Location</small>
+                <span>
+                  Poblacion Uno, Real, Quezon, Philippines
+                </span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon">GH</div>
+              <div>
+                <small>GitHub</small>
+                <span>#</span>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!--
+            IMPORTANT:
+            This form is designed to work without a server.
+            When submitted, JavaScript opens the user's email
+            application using a mailto link.
+          -->
+          <div class="contact-form reveal">
+
+            <h3>Send a Message</h3>
+
+            <form id="contactForm">
+
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell me about your project or opportunity..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Send Message →
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       EDIT: Update footer text if desired
+       ========================================================= -->
+  <footer>
+    <div class="container footer-content">
+
+      <p>
+        © <span id="year"></span> Leonardo Aragon Lachica. All rights reserved.
+      </p>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script>
+    /* =========================================================
+       JAVASCRIPT
+       All JavaScript is contained inside this single file.
+       ========================================================= */
+
+    // =========================================================
+    // MOBILE NAVIGATION
+    // =========================================================
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+
+      if (navLinks.classList.contains("active")) {
+        menuToggle.textContent = "✕";
+      } else {
+        menuToggle.textContent = "☰";
+      }
+    });
+
+    // Close mobile navigation after clicking a link
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+
+    // =========================================================
+    // HEADER SCROLL EFFECT
+    // =========================================================
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 40) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+
+    // =========================================================
+    // SCROLL REVEAL ANIMATION
+    // =========================================================
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach(function (element) {
+      revealObserver.observe(element);
+    });
+
+
+    // =========================================================
+    // AUTOMATIC COPYRIGHT YEAR
+    // =========================================================
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+
+    // =========================================================
+    // CONTACT FORM
+    //
+    // Since this website uses only one HTML file and has no
+    // backend/server, the form opens the visitor's email app.
+    //
+    // EDIT: Change the email address below if needed.
+    // =========================================================
+
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const recipient = "lachicanardz@gmail.com";
+
+      const subject = encodeURIComponent(
+        "Portfolio Inquiry from " + name
+      );
+
+      const body = encodeURIComponent(
+        "Name: " + name +
+        "\nEmail: " + email +
+        "\n\nMessage:\n" + message
+      );
+
+      window.location.href =
+        "mailto:" + recipient +
+        "?subject=" + subject +
+        "&body=" + body;
+    });
+  </script>
+
+</body>
+</html>
+```
 
